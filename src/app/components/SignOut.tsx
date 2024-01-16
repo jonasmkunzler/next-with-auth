@@ -1,6 +1,6 @@
-"use client";
+'use client'
 
-import { signOut } from "next-auth/react";
+import { signOut } from 'next-auth/react'
 
 export default function SignOut() {
   return (
@@ -8,12 +8,12 @@ export default function SignOut() {
       <button
         onClick={() =>
           signOut({
-            callbackUrl: "/", //This make the redirects work do de home page.
+            callbackUrl: '/' //This make the redirects work do de home page.
           })
         }
       >
         Logout
       </button>
     </div>
-  );
+  )
 }

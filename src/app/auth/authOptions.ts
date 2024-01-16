@@ -52,62 +52,62 @@ function CredentialsProvider(arg0: {}): import("next-auth/providers").Provider {
 
  */
 
-import type { NextAuthOptions } from "next-auth";
-import CredentialsProvider from "next-auth/providers/credentials";
-import prisma from "../../../prisma/client";
+import type { NextAuthOptions } from 'next-auth'
+import CredentialsProvider from 'next-auth/providers/credentials'
+import prisma from '../../../prisma/client'
 
 // You'll need to import and pass this
 // to `NextAuth` in `app/api/auth/[...nextauth]/route.ts`
 export const authOption = {
   providers: [
     CredentialsProvider({
-      name: "credentials",
+      name: 'credentials',
       credentials: {
         email: {
-          label: "Email",
-          type: "text",
-          placeholder: "youremail@email.com",
+          label: 'Email',
+          type: 'text',
+          placeholder: 'youremail@email.com'
         },
         username: {
-          label: "Username",
-          type: "text",
-          placeholder: "Your Name",
+          label: 'Username',
+          type: 'text',
+          placeholder: 'Your Name'
         },
-        password: { label: "Password", type: "password" },
+        password: { label: 'Password', type: 'password' }
       },
       async authorize(credentials: any) {
         // check to see if email and password is there
         if (!credentials.email || !credentials.password) {
-          throw new Error("Please enter an email and password");
+          throw new Error('Please enter an email and password')
         }
 
         // check to see if user exists
         const user = await prisma.user.findUnique({
           where: {
-            email: credentials.email,
-          },
-        });
+            email: credentials.email
+          }
+        })
 
         // if no user was found
         if (!user || !user?.hashedPassword) {
-          throw new Error("No user found");
+          throw new Error('No user found')
         }
 
         // check to see if password matches
-        const passwordMatch = credentials.password === user.hashedPassword;
+        const passwordMatch = credentials.password === user.hashedPassword
 
         // if password does not match
         if (!passwordMatch) {
-          throw new Error("Incorrect password");
+          throw new Error('Incorrect password')
         }
 
-        return user;
-      },
-    }),
+        return user
+      }
+    })
   ],
   secret: process.env.NEXTAUTH_SECRET,
   session: {
-    strategy: "jwt",
+    strategy: 'jwt'
   },
-  debug: process.env.NODE_ENV === "development",
-} satisfies NextAuthOptions;
+  debug: process.env.NODE_ENV === 'development'
+} satisfies NextAuthOptions

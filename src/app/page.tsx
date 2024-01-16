@@ -1,4 +1,4 @@
-import SignOut from "./components/SignOut";
+import SignOut from './components/SignOut'
 
 export default function Home() {
   return (
@@ -16,7 +16,7 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           <h2 className={`mb-3 text-2xl font-semibold`}>
-            Dashboard{" "}
+            Dashboard{' '}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none"></span>
             -&gt;
           </h2>
@@ -31,7 +31,7 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           <h2 className={`mb-3 text-2xl font-semibold`}>
-            Server{" "}
+            Server{' '}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
@@ -48,7 +48,7 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           <h2 className={`mb-3 text-2xl font-semibold`}>
-            Contact{" "}
+            Contact{' '}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
@@ -64,7 +64,7 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           <h2 className={`mb-3 text-2xl font-semibold`}>
-            Client{" "}
+            Client{' '}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
@@ -76,5 +76,5 @@ export default function Home() {
         </a>
       </div>
     </main>
-  );
+  )
 }
